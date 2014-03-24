@@ -41,9 +41,9 @@ public class ConnFen extends JPanel {
 		this.setLayout(new BorderLayout());
 		this.add(champs, BorderLayout.CENTER);
 		this.add(conn, BorderLayout.SOUTH);	
-//		this.setPreferredSize(new Dimension(400, 90));
-//		this.setMaximumSize(new Dimension(400, 90));
-//		this.setMinimumSize(new Dimension(400, 90));
+		this.setPreferredSize(new Dimension(400, 90));
+		this.setMaximumSize(new Dimension(400, 90));
+		this.setMinimumSize(new Dimension(400, 90));
 		
 	}
 }

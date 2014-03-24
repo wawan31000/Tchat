@@ -18,9 +18,9 @@ public class TestClient extends JFrame {
 //		this.setTitle("TChat");
 //		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //		this.setContentPane(new Testvue());
-		this.setPreferredSize(new Dimension(400, 110));
-		this.setMaximumSize(new Dimension(400, 110));
-		this.setMinimumSize(new Dimension(400, 110));
+//		this.setPreferredSize(new Dimension(400, 110));
+//		this.setMaximumSize(new Dimension(400, 110));
+//		this.setMinimumSize(new Dimension(400, 110));
 //		this.setSize(new Dimension(800, 400));
 		ConnFen fen = new ConnFen();
 		this.add(fen);
