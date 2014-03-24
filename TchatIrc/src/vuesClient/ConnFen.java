@@ -1,6 +1,7 @@
 package vuesClient;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 
 import javax.swing.JButton;
@@ -40,7 +41,9 @@ public class ConnFen extends JPanel {
 		this.setLayout(new BorderLayout());
 		this.add(champs, BorderLayout.CENTER);
 		this.add(conn, BorderLayout.SOUTH);	
-		this.setSize(400, 300);
+//		this.setPreferredSize(new Dimension(400, 90));
+//		this.setMaximumSize(new Dimension(400, 90));
+//		this.setMinimumSize(new Dimension(400, 90));
 		
 	}
 }

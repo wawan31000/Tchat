@@ -4,6 +4,7 @@ import java.awt.Dimension;
 
 import javax.swing.JFrame;
 
+import vuesClient.ConnFen;
 import vuesClient.Testvue;
 import vuesClient.VuePrincipale;
 
@@ -14,13 +15,18 @@ public class TestClient extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	public TestClient() {
-		this.setTitle("TChat");
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setContentPane(new Testvue());
-		this.setMinimumSize(new Dimension(800, 400));
-		this.setMaximumSize(new Dimension(1200, 800));
-		this.setPreferredSize(new Dimension(800, 400));
-		this.setSize(new Dimension(800, 400));
+//		this.setTitle("TChat");
+//		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		this.setContentPane(new Testvue());
+		this.setPreferredSize(new Dimension(400, 110));
+		this.setMaximumSize(new Dimension(400, 110));
+		this.setMinimumSize(new Dimension(400, 110));
+//		this.setSize(new Dimension(800, 400));
+		ConnFen fen = new ConnFen();
+		this.add(fen);
+		this.setTitle("Tchat Ingesup");
+		this.setLocationRelativeTo(null);
+		this.setResizable(false);
 		this.pack();
 		this.setVisible(true);
 	}
