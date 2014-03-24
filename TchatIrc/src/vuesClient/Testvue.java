@@ -27,7 +27,6 @@ import javax.swing.SwingConstants;
 public class Testvue extends JPanel{
 	public Testvue() {
 		
-		GridBagLayout gridbag = new GridBagLayout();
 		DefaultListModel<String> model= new DefaultListModel<String>();;
 		JList<String> list = new JList<String>();
 		JScrollPane scrollPane = new JScrollPane(new JTextArea());
@@ -48,10 +47,7 @@ public class Testvue extends JPanel{
 		list.setBorder(BorderFactory.createLineBorder(Color.black));
 		list.setModel(model);
 		
-		FlowLayout flowLayout = (FlowLayout) list.getLayout();
 		add(list, BorderLayout.WEST);
-		
-		
 		
 		add(panel, BorderLayout.CENTER);
 		
@@ -72,6 +68,12 @@ public class Testvue extends JPanel{
 		
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
 			}
 		});
 		panel_3.add(btnNewButton, BorderLayout.NORTH);
