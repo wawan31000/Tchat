@@ -4,6 +4,7 @@ import java.awt.Dimension;
 
 import javax.swing.JFrame;
 
+import vuesClient.Testvue;
 import vuesClient.VuePrincipale;
 
 public class TestClient extends JFrame {
@@ -15,7 +16,7 @@ public class TestClient extends JFrame {
 	public TestClient() {
 		this.setTitle("TChat");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setContentPane(new VuePrincipale());
+		this.setContentPane(new Testvue());
 		this.setMinimumSize(new Dimension(800, 400));
 		this.setMaximumSize(new Dimension(1200, 800));
 		this.setPreferredSize(new Dimension(800, 400));

@@ -5,6 +5,7 @@ import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 
 import javax.swing.JPanel;
+import java.awt.FlowLayout;
 
 public class VuePrincipale extends JPanel {
 	/**
@@ -18,10 +19,15 @@ public class VuePrincipale extends JPanel {
 	public VuePrincipale() {
 		
 		liste=new UserListePanel();
+		FlowLayout flowLayout = (FlowLayout) liste.getLayout();
 		droite= new PanneauDroit();
 		GridBagLayout layout = new GridBagLayout();
+		layout.rowHeights = new int[]{313};
 		this.setLayout(layout);
-		this.add(liste);
+		GridBagConstraints gbc_liste = new GridBagConstraints();
+		gbc_liste.gridx = 0;
+		gbc_liste.anchor = GridBagConstraints.WEST;
+		this.add(liste, gbc_liste);
 		this.add(droite);
 		GridBagConstraints listeGridBagConstraints = new GridBagConstraints();
 		GridBagConstraints droiteGridBagConstraints = new GridBagConstraints();

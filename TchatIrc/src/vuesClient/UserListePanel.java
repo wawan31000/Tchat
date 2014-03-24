@@ -25,14 +25,14 @@ public class UserListePanel extends JPanel {
 		model.addElement("richard");
 		liste= new JList<String>();
 		liste.setModel(model);
-		this.setLayout(new FlowLayout());
+		//this.setLayout(new FlowLayout());
 		panneau= new JScrollPane(liste);
 		this.add(panneau);
-		panneau.setMinimumSize(new Dimension(100, 400));
+		/*panneau.setMinimumSize(new Dimension(100, 400));
 		this.setMinimumSize(new Dimension(100, 400));
 		this.setMaximumSize(new Dimension(200, 800));
 		this.setPreferredSize(new Dimension(100, 400));
-		this.setSize(new Dimension(100, 400));
+		this.setSize(new Dimension(100, 400));*/
 		
 		
 	}
