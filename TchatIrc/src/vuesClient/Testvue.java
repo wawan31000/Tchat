@@ -5,6 +5,7 @@ import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.GridBagLayout;
 
 import javax.swing.BorderFactory;
@@ -25,6 +26,11 @@ import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 
 public class Testvue extends JPanel{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public Testvue() {
 		
 		DefaultListModel<String> model= new DefaultListModel<String>();;
@@ -34,8 +40,8 @@ public class Testvue extends JPanel{
 		JPanel panel = new JPanel();
 		JPanel panel_2 = new JPanel();
 		JPanel panel_3 = new JPanel();
-		JButton btnNewButton = new JButton("Envoyer");
-		JButton btnNewButton_1 = new JButton("Annuler");
+		JButton btnEnvoi = new JButton("Envoyer");
+		JButton btnCancel = new JButton("Annuler");
 		
 		setLayout(new BorderLayout(0, 0));
 		
@@ -66,20 +72,23 @@ public class Testvue extends JPanel{
 		panel_3.setLayout(new BorderLayout(0, 0));
 		
 		
-		btnNewButton.addActionListener(new ActionListener() {
+		btnEnvoi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
 		
-		btnNewButton_1.addActionListener(new ActionListener() {
+		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 			}
 		});
-		panel_3.add(btnNewButton, BorderLayout.NORTH);
+		panel_3.add(btnEnvoi, BorderLayout.NORTH);
 		
 		
-		panel_3.add(btnNewButton_1, BorderLayout.SOUTH);
+		panel_3.add(btnCancel, BorderLayout.SOUTH);
+		Dimension taille = new Dimension(800, 400);
+		this.setMinimumSize(taille);
+		this.setPreferredSize(taille);
 	}
 
 }
