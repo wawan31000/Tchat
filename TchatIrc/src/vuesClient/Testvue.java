@@ -38,7 +38,7 @@ public class Testvue extends JPanel{
 		JScrollPane scrollPane = new JScrollPane(new JTextArea());
 		JTextArea textArea = new JTextArea();
 		JPanel panel = new JPanel();
-		JPanel panel_2 = new JPanel();
+		JPanel chatDocument = new JPanel();
 		JPanel panel_3 = new JPanel();
 		JButton btnEnvoi = new JButton("Envoyer");
 		JButton btnCancel = new JButton("Annuler");
@@ -62,13 +62,13 @@ public class Testvue extends JPanel{
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		panel.add(scrollPane, BorderLayout.CENTER);
 		
-		panel.add(panel_2, BorderLayout.SOUTH);
-		panel_2.setLayout(new BorderLayout(0, 0));
+		panel.add(chatDocument, BorderLayout.SOUTH);
+		chatDocument.setLayout(new BorderLayout(0, 0));
 		
 		
-		panel_2.add(textArea, BorderLayout.CENTER);
+		chatDocument.add(textArea, BorderLayout.CENTER);
 		
-		panel_2.add(panel_3, BorderLayout.EAST);
+		chatDocument.add(panel_3, BorderLayout.EAST);
 		panel_3.setLayout(new BorderLayout(0, 0));
 		
 		
