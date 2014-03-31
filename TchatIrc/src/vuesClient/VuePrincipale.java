@@ -24,18 +24,20 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 import javax.swing.SwingConstants;
+import javax.swing.text.StyledDocument;
 
-public class Testvue extends JPanel{
+public class VuePrincipale extends JPanel{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
-	public Testvue() {
+	public static DefaultListModel<String> model;
+	public VuePrincipale(StyledDocument doc) {
 		
-		DefaultListModel<String> model= new DefaultListModel<String>();;
+		JTextArea chatArea=new JTextArea(doc);
+		model= new DefaultListModel<String>();;
 		JList<String> list = new JList<String>();
-		JScrollPane scrollPane = new JScrollPane(new JTextArea());
+		JScrollPane scrollPane = new JScrollPane(chatArea);
 		JTextArea textArea = new JTextArea();
 		JPanel panel = new JPanel();
 		JPanel chatDocument = new JPanel();
