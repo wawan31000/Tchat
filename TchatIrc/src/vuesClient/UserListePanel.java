@@ -1,8 +1,5 @@
 package vuesClient;
 
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.JPanel;

@@ -1,3 +1,4 @@
+
 package vuesClient;
 
 import java.awt.BorderLayout;
@@ -10,19 +11,22 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-public class ConnPan extends JPanel {
+public class ConnPan extends JPanel
+{
+
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
-	private JTextField login;
-	private JLabel loginLabel;
-	private JPasswordField pswd;
-	private JLabel pswdLabel;
-	private JButton conn;
-	private JPanel champs;
+	private static final long	serialVersionUID	= 1L;
+	private JTextField			login;
+	private JLabel				loginLabel;
+	private JPasswordField		pswd;
+	private JLabel				pswdLabel;
+	public static JButton				conn;
+	private JPanel				champs;
 
-	public ConnPan() {
+	public ConnPan()
+	{
 		login = new JTextField();
 		login.setToolTipText("votre identifiant");
 		loginLabel = new JLabel("Identifiant:");
@@ -45,21 +49,26 @@ public class ConnPan extends JPanel {
 
 	}
 
-	public JButton getCo() {
+	public JButton getCo()
+	{
 
 		return conn;
 	}
 
-	public String getID() {
+	public String getID()
+	{
 		String ID = "";
-		ID= login.getText();		
+		ID = login.getText();
 		return ID;
 	}
-	public String getPSWD() {
+
+	public String getPSWD()
+	{
 		char[] ID = null;
-		ID= pswd.getPassword();
-		for (int i = 0; i < pswd.getPassword().length; i++) {
-			pswd.getPassword()[i]=0;
+		ID = pswd.getPassword();
+		for (int i = 0; i < pswd.getPassword().length; i++)
+		{
+			pswd.getPassword()[i] = 0;
 		}
 		ID.toString();
 		return ID.toString();

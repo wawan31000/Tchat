@@ -1,8 +1,8 @@
 package vuesClient;
 
-import java.awt.event.ActionListener;
-
 import javax.swing.JFrame;
+
+import com.cfranc.irc.client.Action;
 
 public class ConnFen extends JFrame {
 
@@ -11,7 +11,7 @@ public class ConnFen extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private ConnPan fen;
-	public ConnFen(ActionListener client){
+	public ConnFen(Action action){
 		
 		// this.setTitle("TChat");
 
@@ -21,7 +21,7 @@ public class ConnFen extends JFrame {
 		// this.setMinimumSize(new Dimension(400, 110));
 		// this.setSize(new Dimension(800, 400));
 		fen = new ConnPan();
-		fen.getCo().addActionListener(client);
+		fen.getCo().addActionListener(action);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.add(fen);
 		this.setTitle("Tchat Ingesup");
