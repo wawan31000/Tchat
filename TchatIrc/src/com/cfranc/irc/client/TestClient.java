@@ -45,7 +45,7 @@ public class TestClient
 							try
 							{
 								TestClient.modelListUsers= new DefaultListModel<String>();
-								action=new Action();
+								action=new Action(TestClient.modelListUsers);
 								window = new ConnFen(action);
 								window.setVisible(true);
 								window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

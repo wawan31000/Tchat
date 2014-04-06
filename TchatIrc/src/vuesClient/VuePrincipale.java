@@ -38,6 +38,8 @@ public class VuePrincipale extends JPanel
 	{
 
 		chatArea = new JTextArea(doc);
+		chatArea.setEnabled(false);
+		chatArea.setDisabledTextColor(Color.BLACK);
 		modelListUsers = model;
 		JlistUsers = new JList<String>(modelListUsers);
 		scrollPaneDiscution = new JScrollPane(chatArea);

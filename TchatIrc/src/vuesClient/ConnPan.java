@@ -11,6 +11,8 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import com.cfranc.irc.client.Action;
+
 public class ConnPan extends JPanel
 {
 
@@ -25,7 +27,7 @@ public class ConnPan extends JPanel
 	public static JButton				conn;
 	private JPanel				champs;
 
-	public ConnPan()
+	public ConnPan(Action action)
 	{
 		login = new JTextField();
 		login.setToolTipText("votre identifiant");
@@ -40,6 +42,7 @@ public class ConnPan extends JPanel
 		champs.add(pswdLabel);
 		champs.add(pswd);
 		conn = new JButton("connexion");
+		conn.addActionListener(action);
 		this.setLayout(new BorderLayout());
 		this.add(champs, BorderLayout.CENTER);
 		this.add(conn, BorderLayout.SOUTH);
@@ -70,8 +73,11 @@ public class ConnPan extends JPanel
 		{
 			pswd.getPassword()[i] = 0;
 		}
-		ID.toString();
-		return ID.toString();
+		String mdp="";
+		for (int i = 0; i < ID.length; i++) {
+			mdp+=ID[i];
+		}
+		return mdp;
 	}
 
 }

@@ -26,6 +26,7 @@ public class VuePrincipaleFen extends JFrame {
 	 this.setMaximumSize(new Dimension(400, 110));
 	 this.setMinimumSize(new Dimension(400, 110));
 	 this.setSize(new Dimension(800, 400));
+	 //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	 
 	}
 }

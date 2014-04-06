@@ -20,8 +20,7 @@ public class ConnFen extends JFrame {
 		// this.setMaximumSize(new Dimension(400, 110));
 		// this.setMinimumSize(new Dimension(400, 110));
 		// this.setSize(new Dimension(800, 400));
-		fen = new ConnPan();
-		fen.getCo().addActionListener(action);
+		fen = new ConnPan(action);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.add(fen);
 		this.setTitle("Tchat Ingesup");
