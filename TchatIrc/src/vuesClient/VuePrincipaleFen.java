@@ -2,6 +2,7 @@ package vuesClient;
 
 import java.awt.Dimension;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.text.StyledDocument;
 
@@ -14,11 +15,13 @@ public class VuePrincipaleFen extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private static VuePrincipale vue;
 
-	public VuePrincipaleFen(StyledDocument doc,Action action){
+	public VuePrincipaleFen(StyledDocument doc,Action action,DefaultListModel<String> model){
 	 this.setTitle("TChat");
+	 vue = new VuePrincipale(doc, action,model);
 
-	 this.setContentPane(new VuePrincipale(doc,action));
+	 this.setContentPane(vue);
 	 this.setPreferredSize(new Dimension(400, 110));
 	 this.setMaximumSize(new Dimension(400, 110));
 	 this.setMinimumSize(new Dimension(400, 110));

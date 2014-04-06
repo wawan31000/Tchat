@@ -3,6 +3,8 @@ package com.cfranc.irc.client;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.net.Socket;
 import java.net.UnknownHostException;
@@ -26,22 +28,38 @@ public class Action implements ActionListener
 
 		if (composant == ConnPan.conn)
 		{
+			
 			new Thread(new Runnable()
 			{
-
+				
 				public void run()
 				{
 					try
 					{
-
+						
 						SwingUtilities.invokeLater(new Runnable()
 						{
 
 							public void run()
 							{
+							
 								TestClient.chat = new DefaultStyledDocument();
 								TestClient.vue = new VuePrincipaleFen(
-										TestClient.chat, TestClient.action);
+										TestClient.chat, TestClient.action, TestClient.modelListUsers);
+								//TestClient.vue.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+								TestClient.vue.addWindowListener( new WindowAdapter() { 
+								    @Override
+								    public void windowClosing(WindowEvent e) {
+								    	try
+										{
+											TestClient.thread.quitServer();
+										}
+										catch (IOException e1)
+										{
+											System.out.println("erreur au moment de quitter le serveur");
+											e1.printStackTrace();
+										}
+								    }});  
 								try
 								{
 									TestClient.socket = new Socket("localhost",
@@ -69,7 +87,7 @@ public class Action implements ActionListener
 								}
 								TestClient.thread = new ClientToServerThread(
 										TestClient.chat,
-										VuePrincipale.modelListUsers,
+										TestClient.modelListUsers,
 										TestClient.socket, TestClient.window
 												.getconnfen().getID(),
 										TestClient.window.getconnfen()

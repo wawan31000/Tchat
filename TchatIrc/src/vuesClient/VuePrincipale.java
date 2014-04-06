@@ -22,7 +22,7 @@ public class VuePrincipale extends JPanel
 	 * 
 	 */
 	private static final long				serialVersionUID	= 1L;
-	public static DefaultListModel<String>	modelListUsers;
+	private static DefaultListModel<String>	modelListUsers;
 	private static JTextArea				chatArea;
 	private static JList<String>			JlistUsers;
 	private static JScrollPane				scrollPaneDiscution;
@@ -34,12 +34,12 @@ public class VuePrincipale extends JPanel
 	private static JButton					btnCancel;
 	private static Action					action;
 
-	public VuePrincipale(StyledDocument doc, Action ecouteur)
+	public VuePrincipale(StyledDocument doc, Action ecouteur, DefaultListModel<String> model)
 	{
 
 		chatArea = new JTextArea(doc);
-		modelListUsers = new DefaultListModel<String>();;
-		JlistUsers = new JList<String>();
+		modelListUsers = model;
+		JlistUsers = new JList<String>(modelListUsers);
 		scrollPaneDiscution = new JScrollPane(chatArea);
 		aireDeFrappe = new JTextArea();
 		panneauPrincipal = new JPanel();
@@ -52,7 +52,7 @@ public class VuePrincipale extends JPanel
 		setLayout(new BorderLayout(0, 0));
 
 		JlistUsers.setBorder(BorderFactory.createLineBorder(Color.black));
-		JlistUsers.setModel(modelListUsers);
+		//JlistUsers.setModel(modelListUsers);
 		JlistUsers.setFixedCellWidth(100);
 		add(JlistUsers, BorderLayout.WEST);
 

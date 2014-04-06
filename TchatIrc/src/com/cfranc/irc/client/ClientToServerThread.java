@@ -50,6 +50,7 @@ public class ClientToServerThread extends Thread implements IfSenderModel
 	private Socket				socket		= null;
 	private DataOutputStream	streamOut	= null;
 	private DataInputStream		streamIn	= null;
+	@SuppressWarnings("unused")
 	private BufferedReader		console		= null;
 	String						login, pwd;
 	DefaultListModel<String>	clientListModel;

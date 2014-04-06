@@ -3,6 +3,8 @@ package com.cfranc.irc.client;
 
 import java.net.Socket;
 
+import javax.swing.DefaultListModel;
+import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import javax.swing.text.StyledDocument;
 
@@ -21,6 +23,7 @@ public class TestClient
 	public static Socket			socket;
 	public static Action			action;
 	public static ClientToServerThread thread;
+	public static  DefaultListModel<String>	modelListUsers;
 
 	public TestClient()
 	{
@@ -41,9 +44,12 @@ public class TestClient
 						{
 							try
 							{
+								TestClient.modelListUsers= new DefaultListModel<String>();
 								action=new Action();
 								window = new ConnFen(action);
 								window.setVisible(true);
+								window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+								          
 							}
 							catch (Exception e)
 							{
