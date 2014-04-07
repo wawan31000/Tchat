@@ -23,7 +23,7 @@ public class ConnFen extends JFrame {
 		fen = new ConnPan(action);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.add(fen);
-		this.setTitle("Tchat Ingesup");
+		this.setTitle("Tchat42");
 		this.setLocationRelativeTo(null);
 		this.setResizable(false);
 		this.pack();

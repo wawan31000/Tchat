@@ -17,13 +17,13 @@ public class TestClient
 	/**
 	 * 
 	 */
-	public static StyledDocument	chat;
-	public static ConnFen			window;
-	public static VuePrincipaleFen	vue;
-	public static Socket			socket;
-	public static Action			action;
-	public static ClientToServerThread thread;
-	public static  DefaultListModel<String>	modelListUsers;
+	public StyledDocument			chat;
+	public ConnFen					window;
+	public VuePrincipaleFen			vue;
+	public Socket					socket;
+	public Action					action;
+	public ClientToServerThread		thread;
+	public DefaultListModel<String>	modelListUsers;
 
 	public TestClient()
 	{
@@ -44,12 +44,13 @@ public class TestClient
 						{
 							try
 							{
-								TestClient.modelListUsers= new DefaultListModel<String>();
-								action=new Action(TestClient.modelListUsers);
-								window = new ConnFen(action);
-								window.setVisible(true);
-								window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-								          
+								TestClient client= new TestClient();
+								client.modelListUsers = new DefaultListModel<String>();
+								client.action = new Action(client);
+								client.window = new ConnFen(client.action);
+								client.window.setVisible(true);
+								client.window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 							}
 							catch (Exception e)
 							{

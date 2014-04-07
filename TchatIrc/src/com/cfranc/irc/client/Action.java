@@ -23,16 +23,17 @@ public class Action implements ActionListener {
 	private DefaultListModel<String> modellist;
 	private String login;
 	private String pswd;
-	private static int PORT;
+	private int PORT;
+	private TestClient client;
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		JComponent composant = (JComponent) e.getSource();
 
 		if (composant == ConnPan.conn) {
 
-			login = TestClient.window.getconnfen()
+			login = client.window.getconnfen()
 					.getID();
-			pswd = TestClient.window.getconnfen()
+			pswd = client.window.getconnfen()
 					.getPSWD();
 			Thread launch= new Thread(new Runnable() {
 
@@ -43,18 +44,18 @@ public class Action implements ActionListener {
 
 							public void run() {
 								
-								TestClient.chat = new DefaultStyledDocument();
-								TestClient.vue = new VuePrincipaleFen(
-										TestClient.chat, TestClient.action,
+								client.chat = new DefaultStyledDocument();
+								client.vue = new VuePrincipaleFen(
+										client.chat, client.action,
 										modellist);
 								// TestClient.vue.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-								TestClient.vue
+								client.vue
 										.addWindowListener(new WindowAdapter() {
 											@Override
 											public void windowClosing(
 													WindowEvent e) {
 												try {
-													TestClient.thread
+													client.thread
 															.quitServer();
 												} catch (IOException e1) {
 													System.out
@@ -71,7 +72,7 @@ public class Action implements ActionListener {
 									{
 										PORT= 46756;
 									}
-									TestClient.socket = new Socket("localhost",
+									client.socket = new Socket("localhost",
 											PORT);
 								} catch (UnknownHostException e) {
 									System.out.println("hote inconnu");
@@ -90,13 +91,13 @@ public class Action implements ActionListener {
 								
 
 								
-									TestClient.thread = new ClientToServerThread(
-											TestClient.chat,
-											TestClient.modelListUsers,
-											TestClient.socket, login, pswd);
-									TestClient.thread.start();
-									TestClient.vue.setVisible(true);
-									TestClient.window.setVisible(false);
+									client.thread = new ClientToServerThread(
+											client.chat,
+											client.modelListUsers,
+											client.socket, login, pswd);
+									client.thread.start();
+									client.vue.setVisible(true);
+									client.window.setVisible(false);
 								
 							}
 						});
@@ -121,7 +122,7 @@ public class Action implements ActionListener {
 			JTextArea airedefrappe = VuePrincipale.getAireDeFrappe();
 			String txtToSend = airedefrappe.getText();
 			if (!txtToSend.equals("") && !txtToSend.equals(null)) {
-				TestClient.thread.setMsgToSend(txtToSend);
+				client.thread.setMsgToSend(txtToSend);
 				airedefrappe.setText("");
 			}
 
@@ -132,8 +133,9 @@ public class Action implements ActionListener {
 		}
 		// todo
 	}
-	public Action(DefaultListModel<String> m) {
-		modellist = m;
+	public Action(TestClient client) {
+		this.client=client;
+		modellist = client.modelListUsers;
 	}
 
 }
