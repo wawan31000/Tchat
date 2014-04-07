@@ -6,6 +6,7 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
@@ -24,8 +25,10 @@ public class ConnPan extends JPanel
 	private JLabel				loginLabel;
 	private JPasswordField		pswd;
 	private JLabel				pswdLabel;
-	public static JButton				conn;
+	public static JButton		conn;
 	private JPanel				champs;
+	private final static String [] salons={"salon 1","salon 2"};
+	public final static JComboBox<String> dropSalon=new JComboBox<>(salons);
 
 	public ConnPan(Action action)
 	{
@@ -44,6 +47,7 @@ public class ConnPan extends JPanel
 		conn = new JButton("connexion");
 		conn.addActionListener(action);
 		this.setLayout(new BorderLayout());
+		this.add(dropSalon,BorderLayout.NORTH);
 		this.add(champs, BorderLayout.CENTER);
 		this.add(conn, BorderLayout.SOUTH);
 		this.setPreferredSize(new Dimension(400, 90));
@@ -73,11 +77,16 @@ public class ConnPan extends JPanel
 		{
 			pswd.getPassword()[i] = 0;
 		}
-		String mdp="";
-		for (int i = 0; i < ID.length; i++) {
-			mdp+=ID[i];
+		String mdp = "";
+		for (int i = 0; i < ID.length; i++)
+		{
+			mdp += ID[i];
 		}
 		return mdp;
+	}
+	
+	public static String getSalon(){
+		return (String) dropSalon.getSelectedItem();
 	}
 
 }

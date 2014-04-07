@@ -23,6 +23,7 @@ public class Action implements ActionListener {
 	private DefaultListModel<String> modellist;
 	private String login;
 	private String pswd;
+	private static int PORT;
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		JComponent composant = (JComponent) e.getSource();
@@ -41,7 +42,7 @@ public class Action implements ActionListener {
 						SwingUtilities.invokeLater(new Runnable() {
 
 							public void run() {
-
+								
 								TestClient.chat = new DefaultStyledDocument();
 								TestClient.vue = new VuePrincipaleFen(
 										TestClient.chat, TestClient.action,
@@ -63,8 +64,15 @@ public class Action implements ActionListener {
 											}
 										});
 								try {
+									if (ConnPan.getSalon().equals("salon 1"))
+									{
+										PORT= 46755;
+									}else if (ConnPan.getSalon().equals("salon 2"))
+									{
+										PORT= 46756;
+									}
 									TestClient.socket = new Socket("localhost",
-											46755);
+											PORT);
 								} catch (UnknownHostException e) {
 									System.out.println("hote inconnu");
 									e.printStackTrace();

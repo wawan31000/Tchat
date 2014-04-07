@@ -18,7 +18,7 @@ public class VuePrincipaleFen extends JFrame {
 	private static VuePrincipale vue;
 
 	public VuePrincipaleFen(StyledDocument doc,Action action,DefaultListModel<String> model){
-	 this.setTitle("TChat");
+	 this.setTitle("TChat42");
 	 vue = new VuePrincipale(doc, action,model);
 
 	 this.setContentPane(vue);

@@ -26,6 +26,7 @@ public class VuePrincipale extends JPanel
 	private static JTextArea				chatArea;
 	private static JList<String>			JlistUsers;
 	private static JScrollPane				scrollPaneDiscution;
+	private static JScrollPane				scrollPaneMsg;
 	private static JTextArea				aireDeFrappe;
 	private static JPanel					panneauPrincipal;
 	private static JPanel					chatDocument;
@@ -39,6 +40,7 @@ public class VuePrincipale extends JPanel
 
 		chatArea = new JTextArea(doc);
 		chatArea.setEnabled(false);
+		chatArea.setLineWrap(true);
 		chatArea.setDisabledTextColor(Color.BLACK);
 		modelListUsers = model;
 		JlistUsers = new JList<String>(modelListUsers);
@@ -50,10 +52,12 @@ public class VuePrincipale extends JPanel
 		btnEnvoi = new JButton("Envoyer");
 		btnCancel = new JButton("Annuler");
 		action = ecouteur;
+		scrollPaneMsg= new JScrollPane(aireDeFrappe);
+		
 
 		setLayout(new BorderLayout(0, 0));
 
-		JlistUsers.setBorder(BorderFactory.createLineBorder(Color.black));
+		JlistUsers.setBorder(BorderFactory.createTitledBorder("utilisateurs connectés"));
 		//JlistUsers.setModel(modelListUsers);
 		JlistUsers.setFixedCellWidth(100);
 		add(JlistUsers, BorderLayout.WEST);
@@ -62,25 +66,30 @@ public class VuePrincipale extends JPanel
 
 		panneauPrincipal.setLayout(new BorderLayout(0, 0));
 
+		scrollPaneMsg.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+		aireDeFrappe.setLineWrap(true);
 		scrollPaneDiscution
 				.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPaneDiscution.setBorder(BorderFactory.createTitledBorder("conversation"));
 		panneauPrincipal.add(scrollPaneDiscution, BorderLayout.CENTER);
 
 		panneauPrincipal.add(chatDocument, BorderLayout.SOUTH);
 		chatDocument.setLayout(new BorderLayout(0, 0));
 
-		chatDocument.add(aireDeFrappe, BorderLayout.CENTER);
-
+		chatDocument.add(scrollPaneMsg, BorderLayout.CENTER);
+		scrollPaneMsg.setBorder(BorderFactory.createTitledBorder("message à envoyer"));
 		chatDocument.add(btnEnvoiCancel, BorderLayout.EAST);
 		btnEnvoiCancel.setLayout(new BorderLayout(0, 0));
 
 		btnEnvoi.addActionListener(action);
-
 		btnCancel.addActionListener(action);
+		
+		
 		btnEnvoiCancel.add(btnEnvoi, BorderLayout.NORTH);
-
 		btnEnvoiCancel.add(btnCancel, BorderLayout.SOUTH);
+		
 		Dimension taille = new Dimension(800, 400);
+		
 		this.setMinimumSize(taille);
 		this.setPreferredSize(taille);
 	}
